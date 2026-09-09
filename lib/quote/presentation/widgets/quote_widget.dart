@@ -4,7 +4,6 @@ import 'package:new_practice_project/quote/presentation/providers/clipboard_prov
 import 'package:new_practice_project/quote/presentation/providers/image_capture_provider.dart';
 import 'package:new_practice_project/quote/presentation/providers/provider.dart';
 
-// Declare key static or outside build to prevent key loss across rebuilds
 final GlobalKey _cardBoundaryKey = GlobalKey();
 
 class QuoteWidget extends ConsumerWidget {
@@ -37,14 +36,13 @@ class QuoteWidget extends ConsumerWidget {
           ),
           const Spacer(),
 
-          // ⚠️ REPAINT BOUNDARY WRAPPER WITH BACKGROUND COLOR
           RepaintBoundary(
             key: _cardBoundaryKey,
             child: Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 223, 221, 221),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(18),
               ),
               child: quoteAsync.when(
                 data: (quote) => Text(
